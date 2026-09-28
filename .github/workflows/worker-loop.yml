@@ -1,0 +1,61 @@
+name: Worker loop
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Worker mode
+        required: true
+        default: dry-run
+        type: choice
+        options: [dry-run, apply]
+      max_issues:
+        description: Number of issues (hard-capped at 3)
+        required: true
+        default: '1'
+        type: choice
+        options: ['1', '2', '3']
+  schedule:
+    - cron: '47 6 * * 1-5'
+
+concurrency:
+  group: worker-loop
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  work:
+    # Keep this runner isolated from production networks and credentials.
+    runs-on: [self-hosted, agent-loop]
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AGENT_PROVIDER: ${{ vars.AGENT_PROVIDER || 'claude' }}
+      MAX_ISSUES: ${{ inputs.max_issues || '1' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Verify tools and clean checkout
+        shell: bash
+        run: |
+          gh --version
+          jq --version
+          "$AGENT_PROVIDER" --version
+          test -z "$(git status --porcelain)"
+
+      - name: Process guarded queue
+        shell: bash
+        env:
+          DISPATCH_MODE: ${{ inputs.mode }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          mode="${DISPATCH_MODE:-apply}"
+          if [[ "$EVENT_NAME" == schedule ]]; then mode=apply; fi
+          bash scripts/worker-loop.sh "--$mode"

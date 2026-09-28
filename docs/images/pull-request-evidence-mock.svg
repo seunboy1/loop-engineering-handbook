@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="Helvetica, Arial, sans-serif">
+  <rect width="960" height="560" fill="#f6f8fa"/>
+  <rect x="24" y="20" width="912" height="520" rx="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/>
+  <rect x="24" y="20" width="912" height="42" rx="10" fill="#f6f8fa"/>
+  <rect x="24" y="52" width="912" height="10" fill="#f6f8fa"/>
+  <circle cx="48" cy="41" r="6" fill="#ff5f57"/>
+  <circle cx="68" cy="41" r="6" fill="#febc2e"/>
+  <circle cx="88" cy="41" r="6" fill="#28c840"/>
+  <text x="480" y="46" font-size="12.5" fill="#57606a" text-anchor="middle">Pull request #132 — opened by the worker loop while you were asleep</text>
+
+  <!-- PR title -->
+  <text x="48" y="92" font-size="17" font-weight="700" fill="#1f2328">test: cover empty-payload webhook handler</text>
+  <rect x="48" y="104" width="54" height="22" rx="11" fill="#1f883d"/>
+  <text x="75" y="119" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">Open</text>
+  <text x="112" y="120" font-size="11.5" fill="#57606a"><tspan fill="#8250df" font-weight="700">codex-worker[bot]</tspan> wants to merge 1 commit into <tspan font-family="Courier, monospace">main</tspan> from <tspan font-family="Courier, monospace">agent/129-webhook-test</tspan></text>
+  <text x="48" y="144" font-size="11.5" fill="#57606a">Closes #129</text>
+  <line x1="48" y1="156" x2="912" y2="156" stroke="#d8dee4" stroke-width="1"/>
+
+  <!-- evidence comment -->
+  <rect x="48" y="170" width="864" height="150" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+  <rect x="48" y="170" width="864" height="28" rx="8" fill="#f6f8fa"/>
+  <rect x="48" y="190" width="864" height="8" fill="#f6f8fa"/>
+  <text x="62" y="189" font-size="11.5" fill="#57606a"><tspan fill="#8250df" font-weight="700">codex-worker[bot]</tspan> commented 6 hours ago — EVIDENCE</text>
+
+  <text x="62" y="218" font-size="11.5" fill="#1f2328" font-weight="700">What changed</text>
+  <text x="62" y="236" font-size="11" fill="#24292f">Added a regression test asserting the handler returns 400 on an empty payload instead of throwing.</text>
+
+  <text x="62" y="262" font-size="11.5" fill="#1f2328" font-weight="700">Test output</text>
+  <rect x="62" y="270" width="836" height="40" rx="5" fill="#0d1117"/>
+  <text x="74" y="287" font-size="10.5" fill="#7ee787" font-family="Courier, monospace">$ pytest tests/test_webhooks.py -q</text>
+  <text x="74" y="302" font-size="10.5" fill="#c9d1d9" font-family="Courier, monospace">8 passed in 1.42s   —   coverage: handlers/webhook.py 71% → 88%</text>
+
+  <!-- sub-agent review -->
+  <rect x="48" y="334" width="864" height="86" rx="8" fill="#fbf7ff" stroke="#8250df" stroke-width="1.2"/>
+  <text x="62" y="355" font-size="11.5" fill="#6639ba" font-weight="700">🔍 Sub-agent review (inside the loop, before the PR existed)</text>
+  <text x="62" y="375" font-size="11" fill="#4c1d95">Finding 1: test asserted status only — no assertion on the error body. → FIXED in same run.</text>
+  <text x="62" y="393" font-size="11" fill="#4c1d95">Finding 2: fixture duplicated an existing helper. → Refactored to reuse `make_payload()`.</text>
+  <text x="62" y="411" font-size="11" fill="#6639ba" font-style="italic">The reviewer was a second agent prompted by the worker — not a human.</text>
+
+  <!-- checks -->
+  <rect x="48" y="434" width="864" height="84" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+  <text x="62" y="455" font-size="11.5" fill="#1f2328" font-weight="700">All checks have passed</text>
+  <circle cx="68" cy="474" r="6" fill="#1f883d"/><text x="82" y="478" font-size="11" fill="#24292f">unit tests — 8 passed</text>
+  <circle cx="68" cy="494" r="6" fill="#1f883d"/><text x="82" y="498" font-size="11" fill="#24292f">lint + typecheck — clean</text>
+  <circle cx="452" cy="474" r="6" fill="#1f883d"/><text x="466" y="478" font-size="11" fill="#24292f">automated code review (2nd reviewer) — no blocking issues</text>
+  <circle cx="452" cy="494" r="6" fill="#bc4c00"/><text x="466" y="498" font-size="11" fill="#953800" font-weight="700">human approval — REQUIRED, still waiting on you</text>
+
+  <text x="48" y="546" font-size="11" fill="#6b7280">The loop delivered a reviewable unit of work and then stopped. The merge button is the one thing it was never given.</text>
+</svg>

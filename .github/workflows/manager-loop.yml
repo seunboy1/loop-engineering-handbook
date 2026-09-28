@@ -1,0 +1,50 @@
+name: Manager loop
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Triage mode
+        required: true
+        default: dry-run
+        type: choice
+        options: [dry-run, apply]
+  schedule:
+    - cron: '17 6 * * *'
+
+concurrency:
+  group: manager-loop
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    # Use an isolated runner with gh plus an authenticated Claude/Codex CLI.
+    runs-on: [self-hosted, agent-loop]
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AGENT_PROVIDER: ${{ vars.AGENT_PROVIDER || 'claude' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verify tools
+        shell: bash
+        run: |
+          gh --version
+          "$AGENT_PROVIDER" --version
+
+      - name: Triage backlog
+        shell: bash
+        env:
+          DISPATCH_MODE: ${{ inputs.mode }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          mode="${DISPATCH_MODE:-apply}"
+          if [[ "$EVENT_NAME" == schedule ]]; then mode=apply; fi
+          bash scripts/manager-loop.sh "--$mode"

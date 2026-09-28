@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="Helvetica, Arial, sans-serif">
+  <rect width="960" height="420" fill="#ffffff"/>
+
+  <text x="480" y="34" font-size="21" font-weight="700" fill="#111827" text-anchor="middle">Inside the Worker Loop: Agents Prompting Agents</text>
+  <text x="480" y="56" font-size="13" fill="#6b7280" text-anchor="middle">Input = one ticket.  Output = one pull request.  Everything between is machine-written.</text>
+
+  <!-- Coordinator -->
+  <rect x="40" y="96" width="176" height="96" rx="11" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+  <text x="128" y="126" font-size="14" font-weight="700" fill="#3730a3" text-anchor="middle">COORDINATOR</text>
+  <text x="128" y="148" font-size="11.5" fill="#4338ca" text-anchor="middle">primary agent</text>
+  <text x="128" y="166" font-size="11" fill="#4f46e5" text-anchor="middle">picks ≤3 tickets,</text>
+  <text x="128" y="181" font-size="11" fill="#4f46e5" text-anchor="middle">writes the prompts</text>
+
+  <!-- Preflight gate -->
+  <rect x="256" y="106" width="130" height="76" rx="10" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="321" y="134" font-size="12.5" font-weight="700" fill="#713f12" text-anchor="middle">PREFLIGHT</text>
+  <text x="321" y="153" font-size="10.5" fill="#854d0e" text-anchor="middle">clean tree?</text>
+  <text x="321" y="169" font-size="10.5" fill="#854d0e" text-anchor="middle">abort if dirty</text>
+
+  <!-- Worker thread box -->
+  <rect x="424" y="86" width="330" height="250" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="589" y="110" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">FRESH WORKER THREAD (own context)</text>
+
+  <rect x="444" y="124" width="290" height="34" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.6"/>
+  <text x="459" y="146" font-size="11.5" fill="#1e3a8a">1 · Read ticket + acceptance criteria</text>
+
+  <rect x="444" y="166" width="290" height="34" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.6"/>
+  <text x="459" y="188" font-size="11.5" fill="#1e3a8a">2 · Write code + tests</text>
+
+  <rect x="444" y="208" width="290" height="34" rx="7" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.6"/>
+  <text x="459" y="230" font-size="11.5" fill="#4c1d95">3 · Spawn SUB-AGENT to review the diff</text>
+
+  <rect x="444" y="250" width="290" height="34" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.6"/>
+  <text x="459" y="272" font-size="11.5" fill="#1e3a8a">4 · Fix findings, re-run tests</text>
+
+  <rect x="444" y="292" width="290" height="34" rx="7" fill="#dcfce7" stroke="#22c55e" stroke-width="1.6"/>
+  <text x="459" y="314" font-size="11.5" fill="#14532d">5 · Open PR + post evidence comment</text>
+
+  <!-- Sub-agent callout -->
+  <rect x="784" y="196" width="150" height="70" rx="10" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="859" y="222" font-size="12" font-weight="700" fill="#5b21b6" text-anchor="middle">REVIEW</text>
+  <text x="859" y="239" font-size="12" font-weight="700" fill="#5b21b6" text-anchor="middle">SUB-AGENT</text>
+  <text x="859" y="256" font-size="10" fill="#6d28d9" text-anchor="middle">clean eyes, no bias</text>
+  <path d="M 734 225 L 780 227" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#pv)"/>
+  <path d="M 780 244 L 736 240" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#pv)" stroke-dasharray="4 3"/>
+
+  <!-- flow arrows -->
+  <path d="M 216 144 L 252 144" stroke="#6366f1" stroke-width="2.5" fill="none" marker-end="url(#pi)"/>
+  <path d="M 386 144 L 420 141" stroke="#eab308" stroke-width="2.5" fill="none" marker-end="url(#py)"/>
+
+  <!-- loop back arrow -->
+  <path d="M 440 336 L 128 336 L 128 196" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#pg)" stroke-dasharray="6 4"/>
+  <text x="284" y="330" font-size="11" fill="#475569" text-anchor="middle">report back → next ticket (sequential)</text>
+
+  <!-- footer note -->
+  <text x="40" y="380" font-size="11.5" fill="#6b7280">Guardrails active at every step: max 3 issues/run · low-risk labels only · no force-push · no merge · no deploy.</text>
+  <text x="40" y="400" font-size="11.5" fill="#6b7280">The human never writes a prompt inside this box — the coordinator does.</text>
+
+  <defs>
+    <marker id="pi" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6366f1"/></marker>
+    <marker id="py" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#eab308"/></marker>
+    <marker id="pv" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8b5cf6"/></marker>
+    <marker id="pg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#64748b"/></marker>
+  </defs>
+</svg>
