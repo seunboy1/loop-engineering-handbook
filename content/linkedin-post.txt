@@ -1,37 +1,35 @@
-Twenty five files landed while I watched.
+Most AI developers are still using agents like a faster terminal.
 
-On Monday night, I gave an AI agent one job.
+Type a prompt. Wait for code. Correct it. Repeat.
 
-Build a complete guide to agent loops, validate every file, and publish it to GitHub.
+That works. But it keeps you as the scheduler, the memory, and the quality check.
 
-It produced a 3,032 word handbook, six original diagrams, two working agent loops, GitHub workflows, and safety checks.
+Loop engineering takes a different approach.
 
-Then the shell failed.
+Instead of prompting an agent to complete a task, you design a system where agents select tasks, execute them within a defined boundary, record evidence, and stop.
 
-The useful part was not that the agent kept going at any cost.
+The interesting part is not the loop itself.
 
-It stopped, exposed the failure, repaired the process, ran the checks, and only then pushed the repository.
+It is what sits around it: the control plane, the policy layer, the verification stack, and the guardrails that make autonomous work safe to run unattended.
 
-Here is what I learned:
+Here is what makes this different from a traditional automation:
 
-Autonomy does not come from a longer prompt.
+→ The agent reads visible state from GitHub Issues, not from a prompt you typed
+→ Labels become a small policy language that gates what agents may touch
+→ Risk classification separates what is safe to delegate from what is not
+→ A fresh reviewer agent checks every diff before the PR is opened
+→ The human keeps the merge button
 
-It comes from visible state, narrow permissions, and a clear place to stop.
+No model context. No hidden state. No prompt that says "be careful."
 
-How to build your first useful agent loop:
+Just a deterministic queue, narrow permissions, and layered verification.
 
-1. Put every task in a visible control plane such as GitHub Issues.
+I spent time building a working implementation of this: a manager loop, a worker loop, guardrails, versioned skills, GitHub Actions workflows, and an evaluation framework.
 
-2. Label work by risk and allow agents to select only low risk tickets.
+I broke it down in the carousel.
 
-3. Require tests, a fresh reviewer agent, and written evidence on every pull request.
+Full handbook and code in the comments.
 
-4. Keep the merge button and production credentials with a human.
+What part of your workflow would you trust an agent to handle first?
 
-Start with one documentation fix or missing test.
-
-Measure how often the work merges without changes before you expand the scope.
-
-I wrote the full handbook and coding tutorial. The link is in the first comment.
-
-Which task would you trust an agent to handle first?
+#AIEngineering #AgentLoops #ClaudeCode #SoftwareEngineering
