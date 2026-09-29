@@ -1,0 +1,37 @@
+Twenty five files landed while I watched.
+
+On Monday night, I gave an AI agent one job.
+
+Build a complete guide to agent loops, validate every file, and publish it to GitHub.
+
+It produced a 3,032 word handbook, six original diagrams, two working agent loops, GitHub workflows, and safety checks.
+
+Then the shell failed.
+
+The useful part was not that the agent kept going at any cost.
+
+It stopped, exposed the failure, repaired the process, ran the checks, and only then pushed the repository.
+
+Here is what I learned:
+
+Autonomy does not come from a longer prompt.
+
+It comes from visible state, narrow permissions, and a clear place to stop.
+
+How to build your first useful agent loop:
+
+1. Put every task in a visible control plane such as GitHub Issues.
+
+2. Label work by risk and allow agents to select only low risk tickets.
+
+3. Require tests, a fresh reviewer agent, and written evidence on every pull request.
+
+4. Keep the merge button and production credentials with a human.
+
+Start with one documentation fix or missing test.
+
+Measure how often the work merges without changes before you expand the scope.
+
+I wrote the full handbook and coding tutorial. The link is in the first comment.
+
+Which task would you trust an agent to handle first?

@@ -18,6 +18,8 @@ required=(
   docs/images/two-loop-architecture.svg docs/images/worker-loop-pipeline.svg
   docs/images/label-taxonomy.svg docs/images/triaged-backlog-mock.svg
   docs/images/pull-request-evidence-mock.svg docs/images/delegation-ladder.svg
+  docs/images/linkedin-agent-loops.svg docs/images/linkedin-agent-loops.png
+  content/linkedin-post.txt content/linkedin-first-comment.txt content/medium-article.md
 )
 for file in "${required[@]}"; do
   if [[ -s "$file" ]]; then printf '✓ present: %s\n' "$file"; else echo "✗ missing: $file" >&2; status=1; fi

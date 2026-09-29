@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#f7f7f3"/>
+  <rect x="54" y="54" width="1092" height="1092" rx="34" fill="#111714"/>
+
+  <text x="110" y="154" fill="#f7f7f3" font-family="Helvetica, Arial, sans-serif" font-size="72" font-weight="700">PROMPTS END.</text>
+  <text x="110" y="232" fill="#57e389" font-family="Helvetica, Arial, sans-serif" font-size="72" font-weight="700">LOOPS BEGIN.</text>
+  <text x="110" y="286" fill="#b7c1bb" font-family="Helvetica, Arial, sans-serif" font-size="25">A safe system for autonomous coding agents</text>
+
+  <rect x="110" y="346" width="980" height="126" rx="22" fill="#1b2420" stroke="#57e389" stroke-width="3"/>
+  <text x="600" y="395" fill="#57e389" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="700" text-anchor="middle">CONTROL PLANE</text>
+  <text x="600" y="437" fill="#f7f7f3" font-family="Courier New, monospace" font-size="23" text-anchor="middle">issues  •  labels  •  status  •  evidence</text>
+
+  <path d="M 360 472 L 360 552" stroke="#57e389" stroke-width="6" fill="none"/>
+  <polygon points="348,542 372,542 360,562" fill="#57e389"/>
+  <path d="M 840 472 L 840 552" stroke="#57e389" stroke-width="6" fill="none"/>
+  <polygon points="828,542 852,542 840,562" fill="#57e389"/>
+
+  <rect x="110" y="566" width="460" height="202" rx="22" fill="#f7f7f3"/>
+  <circle cx="166" cy="620" r="25" fill="#57e389"/>
+  <text x="166" y="629" fill="#111714" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle">1</text>
+  <text x="210" y="629" fill="#111714" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">MANAGER LOOP</text>
+  <text x="150" y="684" fill="#334039" font-family="Helvetica, Arial, sans-serif" font-size="24">Classifies risk</text>
+  <text x="150" y="724" fill="#334039" font-family="Helvetica, Arial, sans-serif" font-size="24">Prepares the safe queue</text>
+
+  <rect x="630" y="566" width="460" height="202" rx="22" fill="#f7f7f3"/>
+  <circle cx="686" cy="620" r="25" fill="#57e389"/>
+  <text x="686" y="629" fill="#111714" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle">2</text>
+  <text x="730" y="629" fill="#111714" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="700">WORKER LOOP</text>
+  <text x="670" y="684" fill="#334039" font-family="Helvetica, Arial, sans-serif" font-size="24">Writes code and tests</text>
+  <text x="670" y="724" fill="#334039" font-family="Helvetica, Arial, sans-serif" font-size="24">Opens one pull request</text>
+
+  <path d="M 840 768 L 840 836" stroke="#57e389" stroke-width="6" fill="none"/>
+  <polygon points="828,826 852,826 840,846" fill="#57e389"/>
+
+  <rect x="390" y="850" width="700" height="112" rx="22" fill="#1b2420" stroke="#57e389" stroke-width="3"/>
+  <text x="740" y="897" fill="#57e389" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle">VERIFICATION</text>
+  <text x="740" y="934" fill="#f7f7f3" font-family="Courier New, monospace" font-size="22" text-anchor="middle">tests  •  fresh reviewer  •  evidence</text>
+
+  <path d="M 390 906 L 284 906" stroke="#57e389" stroke-width="6" fill="none"/>
+  <polygon points="294,894 294,918 274,906" fill="#57e389"/>
+
+  <rect x="110" y="850" width="164" height="112" rx="22" fill="#57e389"/>
+  <text x="192" y="895" fill="#111714" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">HUMAN</text>
+  <text x="192" y="928" fill="#111714" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle">approves</text>
+
+  <line x1="110" y1="1027" x2="1090" y2="1027" stroke="#334039" stroke-width="2"/>
+  <text x="110" y="1084" fill="#f7f7f3" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="700">Input: one safe ticket</text>
+  <text x="1090" y="1084" fill="#f7f7f3" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="700" text-anchor="end">Output: one reviewed pull request</text>
+</svg>

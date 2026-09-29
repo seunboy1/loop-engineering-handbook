@@ -1,0 +1,5 @@
+Full illustrated handbook and runnable tutorial:
+
+https://github.com/seunboy1/loop-engineering-handbook
+
+It includes the manager loop, worker loop, skills, GitHub Actions workflows, issue templates, guardrails, and six original diagrams.
